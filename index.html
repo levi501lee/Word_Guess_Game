@@ -4,43 +4,71 @@
 <head>
   <meta charset="UTF-8">
   <title>Gallows Humor Hangman</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href=assets/javascript/game.js>
+  <!-- <link rel="stylesheet" href="assets/javascript/game.js"> -->
   <link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet">
 
 </head>
 
-<body>
-<header>
-  <div class="page-header text-center">
-    <h1>Gallows Humor Hangman</h1>
-  </div>
-</header>
-<br>
-<br>
+<script rel="stylesheet" src="assets/javascript/game.js">
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
-      <img src="assets/images/hangmancolor.png" alt="Hangman">
-      <br>
-      <p>You have already used these letters</p>
-    </div>
-    <div class="col-sm">
-      <p>The rules are simple, guess this word</p>
-      <p></p>
-      <p>You have this many attempts remaining</p>
-    </div>
-  </div>
-</div>
+  //  letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
 
-<script>
- letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
+  //  var userText = document.getElementById("user-text");
 
+  // document.onkeyup = function(event) {
+  //   userText.textContent = event.key;
+  // };
+
+  // var i;
+  //       for (i = 0; i < letters.length; i++) {
+  //         var letterBtn = $("<button>");
+  //         letterBtn.addClass("letter-button letter letter-button-color")
+  //         letterBtn.attr("data-letter", letters[i])
+  //         letterBtn.text(letters[i])
+  //         $("#buttons").append(letterBtn)
 </script>
+
+
+<body onload="startUp()">
+  <header>
+    <div class="page-header text-center">
+      <h1>Gallows Humor Hangman</h1>
+    </div>
+  </header>
+  <br>
+  <br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <p>You have already used these letters</p>
+        <!-- <img src="assets/images/hangmancolor.png" alt="Hangman"> -->
+        <br>
+        <div class="jumbotron">
+          <h2>You just typed <span id="user-text"><strong>...Nothing.</strong></span></h2>
+        </div>
+        <p> These letters remaining</p>
+
+      </div>
+      <div class="col-sm">
+        <p>The rules are simple, guess this word</p>
+        <p>Guess a letter</p>
+        <input id="letter" type="text">
+        <input type="button" value="letter" onClick="Letter()" />
+        <p id="answer"></p>
+        <p>You have this many attempts remaining</p>
+        <p id="counter"></p>
+        <p id="stat"></p>
+        <div id="reload" onClick="window.location.reload()">You broke it! Restart!</div>
+      </div>
+    </div>
+  </div>
+
+
 
 </body>
 
