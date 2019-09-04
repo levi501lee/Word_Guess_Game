@@ -1,6 +1,6 @@
 
 // These are the words that could occur
-var words = ["dashboard","everywhere", "coyotes",]
+var words = ["dashboard", "everywhere", "coyotes", "invisible",]
 
 var word = [];
 var answerArray = [];
@@ -14,6 +14,7 @@ var losses = 0;
 
 function startUp() {
     // This will randomly select one of the words
+    //  ********* SOMETHING IS MAKING IT DOUBLE UP ON THE FIRST TRY!!!!
     word = words[Math.floor(Math.random() * words.length)];
     answerArray = word.split("");
     blanks = answerArray.length;
@@ -23,15 +24,13 @@ function startUp() {
     }
 
     document.getElementById("currentWord").innerHTML = " " + Correct.join(" ");
-
+    document.getElementById("image").src = "./assets/images/modestMouse.jpg"
     console.log(words);
     console.log(word);
     console.log(blanks);
 }
 
-// When you win, you get these images and audio
-var dashboard = document.getElementById("dashboard");
-var anywhere = document.getElementById("everywhere");
+
 function img() {
     //Dashboard & Image
     //---------------------------
@@ -42,9 +41,13 @@ function img() {
     else if (word === words[1]) {
         document.getElementById("image").src = "./assets/images/everywhere.jpg";
     }
-    // Anywhere & Image
+    // Coyotes & Image
     else if (word === words[2]) {
         document.getElementById("image").src = "./assets/images/coyotes.jpg";
+    }
+    // Invisible & Image
+    else if (word === words[3]) {
+        document.getElementById("image").src = "./assets/images/invisible.jpg";
     }
 }
 
@@ -57,32 +60,43 @@ function reset() {
 
 function checkLetters(letter) {
     var answerArray = false;
-    //if the generated randomword is equal to the letter entered... then variable is true
+    //if the selected word is equal to the letter it's true
     for (var i = 0; i < blanks; i++) {
         if (word[i] == letter) {
             answerArray = true;
         }
     }
-    //if letterInWord (false)
+    //if letter is correct
     if (answerArray) {
         //check each letter to see if it matches word
         for (var i = 0; i < blanks; i++) {
             if (word[i] == letter) {
                 Correct[i] = letter;
+                document.getElementById("picture").src = "assets/images/hangmanYes.png";
             }
         }
     }
-    //otherwise, push the incorrect guess in the wrong guesses section, and reduce remaining guesses
+    //I want to be able to put the guessed letter in the images for lulz, but I'm running out of time
     else {
         wrongGuess.push(letter);
         guessesRemaining--;
+        document.getElementById("picture").src = "assets/images/hangmanNo.png"
     }
-    console.log(Correct);
+    if (guessesRemaining < 7) {
+        document.getElementById("picture").src = "assets/images/hangmanBad.png"
+    }
+    if (guessesRemaining < 6) {
+        document.getElementById("picture").src = "assets/images/hangmanUpset.png"
+    }
+
 }
+
+console.log(Correct);
+
 function complete() {
     console.log("wins:" + wins + "| losses:" + losses + "| guesses left:" + guessesRemaining)
 
-    //if WON...then alert, play audio, display image and reset new round
+    //if WON...display image 
     if (answerArray.toString() == Correct.toString()) {
         wins++;
         img()
@@ -90,7 +104,7 @@ function complete() {
         //display wins on screen
         document.getElementById("winstracker").innerHTML = " " + wins;
 
-        //if LOST...then alert and reset new round
+        //if LOST...then show try again image
     } else if (guessesRemaining === 0) {
         losses++;
         reset()
@@ -102,13 +116,14 @@ function complete() {
     document.getElementById("guessesRemaining").innerHTML = " " + guessesRemaining;
 }
 startUp()
+document.getElementById("picture").src = "assets/images/hangmancolor.png"
 document.onkeyup = function (event) {
     var guesses = String.fromCharCode(event.keyCode).toLowerCase();
-checkLetters(guesses);
-complete();
-console.log(guesses);
+    checkLetters(guesses);
+    complete();
+    console.log(guesses);
 
-document.getElementById("playerGuesses").innerHTML = "  " + wrongGuess.join(" ");
+    document.getElementById("playerGuesses").innerHTML = "  " + wrongGuess.join(" ");
 }
     // function Attempts() {
     //     var Attempts = count
