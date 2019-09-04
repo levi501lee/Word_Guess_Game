@@ -37,20 +37,11 @@ p {
     font-family: 'Nosifer', 'Times New Roman', Times, serif;
 
 }
-.sidebar {
-    padding: 5px;
-    position: relative;
-    border-top: solid red 2px;
-    border-bottom: solid red 2px;
-    margin-bottom: 5px;
-    font-family: 'Times New Roman', cursive;
-    font-size: 20px;
-}
 
 span {
-    border: solid red 2px;
-    padding-left: 3px;
-    padding-right:3px;
+    border: solid black 2px;
+    padding-left: 5px;
+    padding-right:5px;
     background-color: white; 
     font-size: 20px;
 }
