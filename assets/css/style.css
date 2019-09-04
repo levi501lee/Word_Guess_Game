@@ -1,10 +1,68 @@
 
 
 h1 {
+    background-color: white;
     font-size: 80px;
     font-family: 'Nosifer', 'Times New Roman', Times, serif;
 }
+
+img {
+    margin: 10px;
+    height: 300px;
+    width: 300px;
+
+
+
+}
+
 body {
-    font-size: 20px
-    /* background: img (assets/images/hangmancolor.png) no-repeat; */
+    font-size: 25px;
+    background-image: url("../images/background.jpg");
+    width: 100%
   }
+p {
+    padding: 10px;
+}
+.container {
+    background-color: white;
+    font-size: 25px;
+}
+.comicbox {
+      max-height: 228px;
+      max-width: 304px;
+
+  }
+.answer {
+    font-size: 80px;
+    font-family: 'Nosifer', 'Times New Roman', Times, serif;
+
+}
+.sidebar {
+    padding: 5px;
+    position: relative;
+    border-top: solid red 2px;
+    border-bottom: solid red 2px;
+    margin-bottom: 5px;
+    font-family: 'Times New Roman', cursive;
+    font-size: 20px;
+}
+
+span {
+    border: solid red 2px;
+    padding-left: 3px;
+    padding-right:3px;
+    background-color: white; 
+    font-size: 20px;
+}
+
+
+#currentword {
+    font-size: 30px;
+    font-family: 'Times New Roman', cursive;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#scoreboard {
+    padding: 20px;
+}
