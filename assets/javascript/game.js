@@ -24,7 +24,7 @@ function startUp() {
     }
 
     document.getElementById("currentWord").innerHTML = " " + Correct.join(" ");
-    document.getElementById("image").src = "./assets/images/modestMouse.jpg"
+    // document.getElementById("picture").src = "./assets/images/modestMouse.jpg"
     console.log(words);
     console.log(word);
     console.log(blanks);
@@ -35,19 +35,19 @@ function img() {
     //Dashboard & Image
     //---------------------------
     if (word === words[0]) {
-        document.getElementById("image").src = "./assets/images/dashboard.jpg";
+        document.getElementById("picture").src = "./assets/images/dashboard.jpg";
     }
     // Anywhere & Image
     else if (word === words[1]) {
-        document.getElementById("image").src = "./assets/images/everywhere.jpg";
+        document.getElementById("picture").src = "./assets/images/everywhere.jpg";
     }
     // Coyotes & Image
     else if (word === words[2]) {
-        document.getElementById("image").src = "./assets/images/coyotes.jpg";
+        document.getElementById("picture").src = "./assets/images/coyotes.jpg";
     }
     // Invisible & Image
     else if (word === words[3]) {
-        document.getElementById("image").src = "./assets/images/invisible.jpg";
+        document.getElementById("picture").src = "./assets/images/invisible.jpg";
     }
 }
 
