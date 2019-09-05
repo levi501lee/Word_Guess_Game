@@ -37,7 +37,7 @@ function img() {
     if (word === words[0]) {
         document.getElementById("picture").src = "./assets/images/dashboard.jpg";
     }
-    // Anywhere & Image
+    // Everywhere & Image
     else if (word === words[1]) {
         document.getElementById("picture").src = "./assets/images/everywhere.jpg";
     }
@@ -49,8 +49,9 @@ function img() {
     else if (word === words[3]) {
         document.getElementById("picture").src = "./assets/images/invisible.jpg";
     }
-}
 
+
+}
 function reset() {
     guessesRemaining = 9;
     wrongGuess = [];
@@ -73,6 +74,7 @@ function checkLetters(letter) {
             if (word[i] == letter) {
                 Correct[i] = letter;
                 document.getElementById("picture").src = "assets/images/hangmanYes.png";
+                alert("oh ho, the townsfolks are impressed");
             }
         }
     }
@@ -87,6 +89,9 @@ function checkLetters(letter) {
     }
     if (guessesRemaining < 6) {
         document.getElementById("picture").src = "assets/images/hangmanUpset.png"
+    }
+    if (guessesRemaining < 5) {
+        document.getElementById("picture").src = "assets/images/hangmanSpoiled.png"
     }
 
 }
