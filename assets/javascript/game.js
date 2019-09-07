@@ -74,7 +74,7 @@ function checkLetters(letter) {
             if (word[i] == letter) {
                 Correct[i] = letter;
                 document.getElementById("picture").src = "assets/images/hangmanYes.png";
-                alert("oh ho, the townsfolks are impressed");
+                // alert("oh ho, the townsfolks are impressed");
             }
         }
     }
